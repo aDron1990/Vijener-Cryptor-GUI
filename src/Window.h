@@ -35,7 +35,8 @@ namespace VijenerCryptorGUI {
 			}
 		}
 	private: System::Windows::Forms::MenuStrip^ menuStrip1;
-	private: System::Windows::Forms::ToolStripMenuItem^ Ù‡ÈÎToolStripMenuItem;
+	private: System::Windows::Forms::ToolStripMenuItem^ file_ToolStripMenuItem;
+
 	private: System::Windows::Forms::ToolStripMenuItem^ exit_ToolStripMenuItem;
 	private: System::Windows::Forms::ToolStripMenuItem^ aboutApp_ToolStripMenuItem;
 	private: System::Windows::Forms::Label^ label1;
@@ -46,6 +47,10 @@ namespace VijenerCryptorGUI {
 	private: System::Windows::Forms::Button^ decrypt_button;
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::TextBox^ result_textBox;
+	private: System::Windows::Forms::ComboBox^ alphabet_comboBox;
+
+
+	private: System::Windows::Forms::Label^ label4;
 
 	protected:
 
@@ -62,8 +67,9 @@ namespace VijenerCryptorGUI {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Window::typeid));
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
-			this->Ù‡ÈÎToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
+			this->file_ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->exit_ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->aboutApp_ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->label1 = (gcnew System::Windows::Forms::Label());
@@ -74,13 +80,15 @@ namespace VijenerCryptorGUI {
 			this->decrypt_button = (gcnew System::Windows::Forms::Button());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->result_textBox = (gcnew System::Windows::Forms::TextBox());
+			this->alphabet_comboBox = (gcnew System::Windows::Forms::ComboBox());
+			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->menuStrip1->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// menuStrip1
 			// 
 			this->menuStrip1->Items->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(2) {
-				this->Ù‡ÈÎToolStripMenuItem,
+				this->file_ToolStripMenuItem,
 					this->aboutApp_ToolStripMenuItem
 			});
 			this->menuStrip1->Location = System::Drawing::Point(0, 0);
@@ -89,17 +97,17 @@ namespace VijenerCryptorGUI {
 			this->menuStrip1->TabIndex = 0;
 			this->menuStrip1->Text = L"menuStrip1";
 			// 
-			// Ù‡ÈÎToolStripMenuItem
+			// file_ToolStripMenuItem
 			// 
-			this->Ù‡ÈÎToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->exit_ToolStripMenuItem });
-			this->Ù‡ÈÎToolStripMenuItem->Name = L"Ù‡ÈÎToolStripMenuItem";
-			this->Ù‡ÈÎToolStripMenuItem->Size = System::Drawing::Size(48, 20);
-			this->Ù‡ÈÎToolStripMenuItem->Text = L"‘‡ÈÎ";
+			this->file_ToolStripMenuItem->DropDownItems->AddRange(gcnew cli::array< System::Windows::Forms::ToolStripItem^  >(1) { this->exit_ToolStripMenuItem });
+			this->file_ToolStripMenuItem->Name = L"file_ToolStripMenuItem";
+			this->file_ToolStripMenuItem->Size = System::Drawing::Size(48, 20);
+			this->file_ToolStripMenuItem->Text = L"‘‡ÈÎ";
 			// 
 			// exit_ToolStripMenuItem
 			// 
 			this->exit_ToolStripMenuItem->Name = L"exit_ToolStripMenuItem";
-			this->exit_ToolStripMenuItem->Size = System::Drawing::Size(109, 22);
+			this->exit_ToolStripMenuItem->Size = System::Drawing::Size(180, 22);
 			this->exit_ToolStripMenuItem->Text = L"¬˚ıÓ‰";
 			this->exit_ToolStripMenuItem->Click += gcnew System::EventHandler(this, &Window::exit_ToolStripMenuItem_Click);
 			// 
@@ -113,7 +121,7 @@ namespace VijenerCryptorGUI {
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(12, 35);
+			this->label1->Location = System::Drawing::Point(9, 48);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(44, 13);
 			this->label1->TabIndex = 1;
@@ -122,7 +130,7 @@ namespace VijenerCryptorGUI {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(12, 87);
+			this->label2->Location = System::Drawing::Point(9, 87);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(39, 13);
 			this->label2->TabIndex = 2;
@@ -130,7 +138,7 @@ namespace VijenerCryptorGUI {
 			// 
 			// word_textBox
 			// 
-			this->word_textBox->Location = System::Drawing::Point(12, 51);
+			this->word_textBox->Location = System::Drawing::Point(12, 64);
 			this->word_textBox->Name = L"word_textBox";
 			this->word_textBox->Size = System::Drawing::Size(260, 20);
 			this->word_textBox->TabIndex = 3;
@@ -144,7 +152,7 @@ namespace VijenerCryptorGUI {
 			// 
 			// encrypt_button
 			// 
-			this->encrypt_button->Location = System::Drawing::Point(12, 138);
+			this->encrypt_button->Location = System::Drawing::Point(12, 129);
 			this->encrypt_button->Name = L"encrypt_button";
 			this->encrypt_button->Size = System::Drawing::Size(92, 23);
 			this->encrypt_button->TabIndex = 5;
@@ -154,7 +162,7 @@ namespace VijenerCryptorGUI {
 			// 
 			// decrypt_button
 			// 
-			this->decrypt_button->Location = System::Drawing::Point(110, 138);
+			this->decrypt_button->Location = System::Drawing::Point(110, 129);
 			this->decrypt_button->Name = L"decrypt_button";
 			this->decrypt_button->Size = System::Drawing::Size(92, 23);
 			this->decrypt_button->TabIndex = 6;
@@ -165,7 +173,7 @@ namespace VijenerCryptorGUI {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(12, 175);
+			this->label3->Location = System::Drawing::Point(9, 164);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(65, 13);
 			this->label3->TabIndex = 7;
@@ -173,16 +181,37 @@ namespace VijenerCryptorGUI {
 			// 
 			// result_textBox
 			// 
-			this->result_textBox->Location = System::Drawing::Point(12, 191);
+			this->result_textBox->Location = System::Drawing::Point(12, 180);
 			this->result_textBox->Name = L"result_textBox";
 			this->result_textBox->Size = System::Drawing::Size(260, 20);
 			this->result_textBox->TabIndex = 8;
+			// 
+			// alphabet_comboBox
+			// 
+			this->alphabet_comboBox->FormattingEnabled = true;
+			this->alphabet_comboBox->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L" ËËÎËˆ‡", L"À‡ÚËÌËˆ‡" });
+			this->alphabet_comboBox->Location = System::Drawing::Point(156, 36);
+			this->alphabet_comboBox->Name = L"alphabet_comboBox";
+			this->alphabet_comboBox->Size = System::Drawing::Size(116, 21);
+			this->alphabet_comboBox->Sorted = true;
+			this->alphabet_comboBox->TabIndex = 9;
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Location = System::Drawing::Point(96, 44);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(54, 13);
+			this->label4->TabIndex = 10;
+			this->label4->Text = L"¿ÎÙ‡‚ËÚ:";
 			// 
 			// Window
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(284, 221);
+			this->Controls->Add(this->label4);
+			this->Controls->Add(this->alphabet_comboBox);
 			this->Controls->Add(this->result_textBox);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->decrypt_button);
@@ -192,12 +221,14 @@ namespace VijenerCryptorGUI {
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->menuStrip1);
+			this->Icon = gcnew System::Drawing::Icon(L"res/icon.ico");
 			this->MainMenuStrip = this->menuStrip1;
+			this->MaximizeBox = false;
 			this->MaximumSize = System::Drawing::Size(300, 260);
 			this->MinimumSize = System::Drawing::Size(300, 260);
 			this->Name = L"Window";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
-			this->Text = L"Window";
+			this->Text = L"Vijener cryptor";
 			this->menuStrip1->ResumeLayout(false);
 			this->menuStrip1->PerformLayout();
 			this->ResumeLayout(false);

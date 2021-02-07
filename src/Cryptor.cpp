@@ -21,7 +21,7 @@ std::string Functions::Encryptor(std::string word, std::string key)
 			char ch = (key[ii % key.size()] - a) + (word[i] - a);
 
 
-			if (ch > 25)
+			if (ch > z)
 			{
 				ch -= 26;
 			}

@@ -1,3 +1,6 @@
+//Encryptor/Decryptor for Vijener crypt with GUI
+
+
 #include "Window.h"
 #include "Cryptor.h"
 
