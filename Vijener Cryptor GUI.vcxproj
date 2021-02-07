@@ -115,6 +115,7 @@
     <ClCompile Include="src\Window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="resource.h" />
     <ClInclude Include="src\Cryptor.h" />
     <ClInclude Include="src\Window.h">
       <FileType>CppForm</FileType>
@@ -137,6 +138,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Builds\0.1\0.1.1\Vijener Cryptor GUI.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Vijener Cryptor GUI.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

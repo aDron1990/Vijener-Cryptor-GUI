@@ -29,13 +29,21 @@
     <ClInclude Include="src\Window.h">
       <Filter>Файлы заголовков</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Builds\0.1\0.1.1\Vijener Cryptor GUI.exe" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Vijener Cryptor GUI.rc">
+      <Filter>Файлы ресурсов</Filter>
+    </ResourceCompile>
   </ItemGroup>
   <ItemGroup>
     <Image Include="res\icon.ico">
       <Filter>Файлы ресурсов</Filter>
     </Image>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Builds\0.1\0.1.1\Vijener Cryptor GUI.exe" />
   </ItemGroup>
 </Project>

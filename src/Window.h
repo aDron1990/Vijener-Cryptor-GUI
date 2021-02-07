@@ -67,6 +67,7 @@ namespace VijenerCryptorGUI {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Window::typeid));
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->file_ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->exit_ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
