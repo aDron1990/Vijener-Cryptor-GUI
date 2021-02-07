@@ -42,7 +42,7 @@ System::Void VijenerCryptorGUI::Window::exit_ToolStripMenuItem_Click(System::Obj
 System::Void VijenerCryptorGUI::Window::aboutApp_ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
 {
 
-    MessageBox::Show("version 0.1","Vijener Cryptor GUI");
+    MessageBox::Show("version 0.1\nby aDron1990","Vijener Cryptor GUI");
     return System::Void();
 
 }
