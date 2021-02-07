@@ -1,13 +1,23 @@
 #include "Cryptor.h"
+#include <string>
+#include <iostream>
 
 
-std::string Functions::Encryptor(std::string word, std::string key)
+std::string Functions::Encryptor(std::string word, std::string key, bool& wrongKey)
 {
 
 	std::string EncryptedWord;
 
 	for (int i = 0, ii = 0; i < word.size(); i++)
 	{
+
+		if (key[ii % key.size()] < a || key.size() > a + z)
+		{
+			
+			wrongKey = true;
+			return "";
+
+		}
 
 		if ((word[i] >= A && word[i] <= A + z) || (word[i] >= a && word[i] <= a + z))
 		{
@@ -45,7 +55,7 @@ std::string Functions::Encryptor(std::string word, std::string key)
 }
 
 
-std::string Functions::Decryptor(std::string word, std::string key)
+std::string Functions::Decryptor(std::string word, std::string key, bool& wrongKey)
 {
 
 	std::string DecryptedWord;
@@ -53,9 +63,17 @@ std::string Functions::Decryptor(std::string word, std::string key)
 	for (int i = 0, ii = 0; i < word.size(); i++)
 	{
 
-		if ((word[i] >= A && word[i] <= A + z) || (word[i] >= a && word[i] <= a + z))
+		if (key[ii % key.size()] < a || key.size() > a + z)
 		{
 
+			wrongKey = true;
+			return "";
+
+		}
+
+		if ((word[i] >= A && word[i] <= A + z) || (word[i] >= a && word[i] <= a + z))
+		{
+			
 			if (word[i] >= A && word[i] <= A + z)
 			{
 				word[i] -= a - A;

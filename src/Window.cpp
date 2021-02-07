@@ -14,6 +14,7 @@
 std::string Word_TextBox_text;
 std::string Key_TextBox_text;
 std::string Result_TextBox_text;
+bool WrongKey = false;
 
 
 using namespace VijenerCryptorGUI;
@@ -49,11 +50,27 @@ System::Void VijenerCryptorGUI::Window::aboutApp_ToolStripMenuItem_Click(System:
 System::Void VijenerCryptorGUI::Window::encrypt_button_Click(System::Object^ sender, System::EventArgs^ e)
 {
 
-    Window::result_textBox->Text = marshal_as<System::String ^>(
-        Functions::Encryptor(
-            marshal_as<std::string>(Window::word_textBox->Text), 
-            marshal_as<std::string>(Window::key_textBox->Text)
-        ));
+    Result_TextBox_text = Functions::Encryptor(
+            marshal_as<std::string>(Window::word_textBox->Text),
+            marshal_as<std::string>(Window::key_textBox->Text),
+            WrongKey
+        );
+
+    if (WrongKey)
+    {
+
+        MessageBox::Show("Используйте в ключе только символы выбранного алфавита в нижнем регистре!", "Ошибка!");
+        WrongKey = false;
+
+    }
+    else
+    {
+
+        Window::result_textBox->Text = marshal_as<System::String ^>(Result_TextBox_text);
+        Result_TextBox_text.clear();
+
+    }
+
     return System::Void();
 
 }
@@ -61,11 +78,27 @@ System::Void VijenerCryptorGUI::Window::encrypt_button_Click(System::Object^ sen
 System::Void VijenerCryptorGUI::Window::decrypt_button_Click(System::Object^ sender, System::EventArgs^ e)
 {
 
-    Window::result_textBox->Text = marshal_as<System::String^>(
-        Functions::Decryptor(
+    Result_TextBox_text = Functions::Decryptor(
             marshal_as<std::string>(Window::word_textBox->Text),
-            marshal_as<std::string>(Window::key_textBox->Text)
-        ));
+            marshal_as<std::string>(Window::key_textBox->Text),
+            WrongKey
+        );
+
+    if (WrongKey)
+    {
+
+        MessageBox::Show("Используйте в ключе только символы выбранного алфавита в нижнем регистре!", "Ошибка!");
+        WrongKey = false;
+
+    }
+    else
+    {
+
+        Window::result_textBox->Text = marshal_as<System::String^>(Result_TextBox_text);
+        Result_TextBox_text.clear();
+
+    }
+
     return System::Void();
 
 }

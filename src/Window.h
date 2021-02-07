@@ -67,7 +67,6 @@ namespace VijenerCryptorGUI {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(Window::typeid));
 			this->menuStrip1 = (gcnew System::Windows::Forms::MenuStrip());
 			this->file_ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
 			this->exit_ToolStripMenuItem = (gcnew System::Windows::Forms::ToolStripMenuItem());
@@ -107,7 +106,7 @@ namespace VijenerCryptorGUI {
 			// exit_ToolStripMenuItem
 			// 
 			this->exit_ToolStripMenuItem->Name = L"exit_ToolStripMenuItem";
-			this->exit_ToolStripMenuItem->Size = System::Drawing::Size(180, 22);
+			this->exit_ToolStripMenuItem->Size = System::Drawing::Size(109, 22);
 			this->exit_ToolStripMenuItem->Text = L"Выход";
 			this->exit_ToolStripMenuItem->Click += gcnew System::EventHandler(this, &Window::exit_ToolStripMenuItem_Click);
 			// 
@@ -190,16 +189,16 @@ namespace VijenerCryptorGUI {
 			// 
 			this->alphabet_comboBox->FormattingEnabled = true;
 			this->alphabet_comboBox->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Кирилица", L"Латиница" });
-			this->alphabet_comboBox->Location = System::Drawing::Point(156, 36);
+			this->alphabet_comboBox->Location = System::Drawing::Point(198, 36);
 			this->alphabet_comboBox->Name = L"alphabet_comboBox";
-			this->alphabet_comboBox->Size = System::Drawing::Size(116, 21);
+			this->alphabet_comboBox->Size = System::Drawing::Size(74, 21);
 			this->alphabet_comboBox->Sorted = true;
 			this->alphabet_comboBox->TabIndex = 9;
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(96, 44);
+			this->label4->Location = System::Drawing::Point(138, 44);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(54, 13);
 			this->label4->TabIndex = 10;
@@ -221,7 +220,6 @@ namespace VijenerCryptorGUI {
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->menuStrip1);
-			this->Icon = gcnew System::Drawing::Icon(L"res/icon.ico");
 			this->MainMenuStrip = this->menuStrip1;
 			this->MaximizeBox = false;
 			this->MaximumSize = System::Drawing::Size(300, 260);

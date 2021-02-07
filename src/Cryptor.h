@@ -13,7 +13,7 @@ namespace Functions
 	const char A = 'A';
 
 
-	std::string Encryptor(std::string word, std::string key);
-	std::string Decryptor(std::string word, std::string key);
+	std::string Encryptor(std::string word, std::string key, bool& wrongKey);
+	std::string Decryptor(std::string word, std::string key, bool& wrongKey);
 
 }
