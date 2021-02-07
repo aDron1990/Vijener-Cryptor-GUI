@@ -11,6 +11,7 @@
 #include <msclr\marshal_cppstd.h>
 
 
+const std::string VERSION = "0.1.1";
 std::string Word_TextBox_text;
 std::string Key_TextBox_text;
 std::string Result_TextBox_text;
@@ -42,7 +43,7 @@ System::Void VijenerCryptorGUI::Window::exit_ToolStripMenuItem_Click(System::Obj
 System::Void VijenerCryptorGUI::Window::aboutApp_ToolStripMenuItem_Click(System::Object^ sender, System::EventArgs^ e)
 {
 
-    MessageBox::Show("version 0.1\nby aDron1990","Vijener Cryptor GUI");
+    MessageBox::Show("version " + marshal_as<System::String^>(VERSION) + "\nby aDron1990","Vijener Cryptor GUI");
     return System::Void();
 
 }
